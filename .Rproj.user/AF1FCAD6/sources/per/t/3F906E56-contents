@@ -1,0 +1,142 @@
+### Exercise Week 1
+
+### Author: Ahmad Ichsan Baihaqi
+### Email: ahmadichsanbaihaqi@gmail.com
+
+# Soal 1: Print out integers which are multiples of 3 from 1 to 22.
+# (Print out bilangan bulat yang merupakan kelipatan 3 dari 1 sampai 22).
+# Ekspektasi jawaban: Ketika kode kalian di-run, muncul angka-angka: 3, 6, 9, 12, 15, 18, 21.
+# Gunakan looping.
+
+firstQuestion = function() {
+  startInt = 1
+  endInt = 22
+  
+  getDividedByThree = function(start, end) {
+    for (x in start:end) {
+      if (x %% 3 == 0) {
+        print(x)
+      }
+    }
+  }
+  
+  getDividedByThree(startInt, endInt)
+}
+
+firstQuestion()
+
+# =========================================================================
+# Soal 2: Buat sebuah function di R untuk mengecek apakah sebuah angka
+# merupakan bilangan prima atau bukan.
+# Ekspektasi jawaban: misal fungsi Anda bernama prime_check.
+# Ketika kita jalankan prime_check(5), maka outputnya adalah ‘5 is a Prime number’.
+# Fungsi ini harus bisa berlaku untuk input apa pun.
+# Clue: Pengecekan bilangan prima menggunakan looping dan modulo.
+
+# Bilangan prima adalah bilangan yang hanya dapat habis dibagi oleh angka 1 dan bilangan itu sendiri
+# Dimulai dari angka 2
+
+secondQuestion = function(parameter) {
+  input = parameter
+  
+  isPrime = function(number) {
+    if (number <= 1) {
+      return (FALSE)
+    }
+    
+    if (number == 2 | number == 3) {
+      return (TRUE)
+    }
+    
+    limit = number - 1
+
+    for (x in 2:limit) {
+      numberModulo = number %% x
+
+      if (numberModulo == 0) {
+        return (FALSE)
+      }
+    }
+    
+    return (TRUE)
+  }
+  
+  isItPrime = isPrime(input)
+  
+  message = paste(input, "is a Prime number")
+
+  if (!isItPrime) {
+    message = paste(input, "is not a Prime number")
+  }
+  
+  print(message)
+}
+
+secondQuestion(21)
+secondQuestion(29)
+
+
+for (x in 5:4) {
+  print(x)
+}
+
+a = function(x) {
+  print(x);
+
+  for (x in 1:5) {
+    print(x)
+  }
+  
+  print(x);
+}
+
+a(10)
+
+
+
+
+
+prime_check = function(parameter) {
+  # contoh modulo X %% Y = 0
+  # bilangan yg HANYA HABIS dibagi 1 dan dirinya sendiri
+  # 6, 6 %% 1 = 0, 6 %% 2 = 0, 6 %% 3 = 0, 6 %% 6 = 0
+  # 1 tidak termasuk prima => rules pertama
+  # untuk tau habis dibagi/tidak, pakai modulo => x %% 1 == x && x %% x == 0
+  # angka yg dicek, itu angka berapa aja? => dari 2 sampai parameter.
+  
+  message = "";
+  
+  if (parameter <= 1) {
+    message = paste(parameter, "Bukan Bilangan Prima")
+    print(message);
+    return()
+  }
+  
+  for (x in 2:parameter) {
+    # mau ngapain?
+    # if (x %% 1 == 0 & x %% x == 0) {
+    #   # jika kondisi ini terpenuhi, maka dia bilangan prima
+    # }
+    
+    # apakah ada angka lain yg habis membagi parameter, selain 1 dan parameter
+    if (x == parameter) break;
+
+    if (parameter %% x == 0) {
+      # kalo masuk sini, artinya ADA angka lain selain 1 dan parameter yg habis membagi parameter
+      # kalo masuk sini, artinya, parameternya, bukan bilang prima
+      message = paste(parameter, "Bukan Bilangan Prima")
+      print(message);
+      return()
+    }
+  }
+  
+  message = paste(parameter, "Bilangan Prima")
+  print(message);
+}
+
+# jika ada angka selain 1 dan 10 yg habis membagi 10, maka 10 bukan prima
+
+prime_check(19)
+
+print("hai")
+
